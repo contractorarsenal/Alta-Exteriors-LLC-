@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alta Exteriors LLC — Professional Painting Contractor | Snohomish County</title>
-<meta name="description" content="Alta Exteriors LLC — licensed & insured painting contractor serving Snohomish County. Exterior painting, interior painting, kitchen cabinet refinishing. 3-year warranty. Free quotes.">
+<title>Alta Exteriors LLC | Professional Painting Contractor | Snohomish County</title>
+<meta name="description" content="Alta Exteriors LLC, licensed & insured painting contractor serving Snohomish County. Exterior painting, interior painting, kitchen cabinet refinishing. 3-year warranty. Free quotes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -33,14 +33,10 @@ html{scroll-behavior:smooth;}
 body{background:var(--off-white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.06);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.06);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
-.nav-logo-mark{width:34px;height:34px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
-.nav-logo-img{height:42px;width:auto;display:block;object-fit:contain;filter:brightness(1);}
-.footer-logo-img{height:64px;width:auto;display:block;object-fit:contain;margin-bottom:4px;}
-.nav-logo-text{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1.1;}
-.nav-logo-sub{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+.nav-logo img{height:46px;width:auto;display:block;filter:brightness(0) invert(1);}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
 .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:var(--orange);}
@@ -52,8 +48,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .nav-burger.open span:nth-child(2){opacity:0;}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.nav-drawer{position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--black-soft);z-index:199;display:flex;flex-direction:column;padding:28px 24px 36px;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
+
+/* DRAWER */
+.nav-drawer{position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--black-soft);z-index:199;display:flex;flex-direction:column;padding:28px 24px 36px;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
 .nav-drawer.open{transform:translateX(0);}
+.nav-drawer img{height:48px;width:auto;filter:brightness(0) invert(1);margin-bottom:16px;}
 .nav-drawer a{color:rgba(255,255,255,0.82);text-decoration:none;font-family:'Oswald',sans-serif;font-size:22px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:block;transition:color 0.2s;}
 .nav-drawer a:hover{color:var(--orange);}
 .drawer-cta{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
@@ -76,7 +75,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 #hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--black);overflow:hidden;}
 .hero-texture{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 .hero-glow{position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(232,70,28,0.18) 0%,transparent 65%);pointer-events:none;}
-.hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%;padding:100px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%;padding:120px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,70,28,0.15);border:1px solid rgba(232,70,28,0.3);padding:5px 14px;border-radius:var(--rpill);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-light);margin-bottom:24px;}
 .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(1.6);}}
@@ -89,6 +88,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .trust-item{display:flex;align-items:center;gap:8px;}
 .trust-dot{width:28px;height:28px;background:rgba(232,70,28,0.15);border:1px solid rgba(232,70,28,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
 .trust-txt{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);}
+
+/* Hero mosaic */
 .hero-right{position:relative;height:560px;}
 .hero-img-main{position:absolute;top:0;right:0;width:75%;height:400px;object-fit:cover;border-radius:var(--rlg);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
 .hero-img-accent{position:absolute;bottom:0;left:0;width:55%;height:270px;object-fit:cover;border-radius:var(--r);box-shadow:0 12px 36px rgba(0,0,0,0.4);border:3px solid var(--black);}
@@ -123,8 +124,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .tag{background:var(--warm-gray);border:1px solid var(--border);color:var(--text-mid);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:5px 13px;border-radius:var(--rpill);}
 .about-right{position:relative;}
 .about-img-stack{position:relative;height:480px;}
-.about-img-main{position:absolute;top:0;right:0;width:82%;height:340px;object-fit:cover;object-position:center;border-radius:var(--rlg);box-shadow:var(--shadow-lg);}
-.about-img-sub{position:absolute;bottom:0;left:0;width:54%;height:230px;object-fit:cover;object-position:center;border-radius:var(--r);box-shadow:var(--shadow);border:4px solid var(--off-white);}
+.about-img-main{position:absolute;top:0;right:0;width:82%;height:340px;object-fit:cover;border-radius:var(--rlg);box-shadow:var(--shadow-lg);}
+.about-img-sub{position:absolute;bottom:0;left:0;width:54%;height:230px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow);border:4px solid var(--off-white);}
 .about-stat-box{position:absolute;bottom:50px;right:-8px;background:var(--orange);color:#fff;border-radius:var(--r);padding:16px 20px;text-align:center;box-shadow:0 8px 28px rgba(232,70,28,0.4);}
 .about-stat-num{font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;line-height:1;display:block;}
 .about-stat-txt{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.9;margin-top:3px;}
@@ -173,7 +174,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
 .process-steps::before{content:'';position:absolute;top:32px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--orange),rgba(232,70,28,0.2));z-index:0;}
 .process-step{position:relative;z-index:1;padding:0 20px;text-align:center;}
-.step-circle{width:64px;height:64px;background:var(--off-white);border:3px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 14px rgba(232,70,28,0.2);transition:background 0.3s,border-color 0.3s;}
+.step-circle{width:64px;height:64px;background:var(--off-white);border:3px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 14px rgba(232,70,28,0.2);transition:background 0.3s;}
 .process-step:hover .step-circle{background:var(--orange);}
 .step-num{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--orange);transition:color 0.3s;}
 .process-step:hover .step-num{color:#fff;}
@@ -209,18 +210,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .area-item::before{content:'→';color:var(--orange);font-size:12px;}
 .areas-map{position:relative;height:380px;border-radius:var(--rlg);overflow:hidden;box-shadow:var(--shadow-lg);}
 .areas-map img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
-.areas-map-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,70,28,0.8) 0%,rgba(26,26,26,0.65) 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:36px;}
+.areas-map-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,70,28,0.82) 0%,rgba(26,26,26,0.65) 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:36px;}
 .areas-map-overlay h3{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:8px;}
 .areas-map-overlay p{font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:0.06em;}
 
 /* GALLERY */
 .gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);height:220px;gap:4px;overflow:hidden;}
 .gallery-strip div{overflow:hidden;position:relative;}
-.gallery-strip div img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.gallery-strip div img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;display:block;}
 .gallery-strip div:hover img{transform:scale(1.06);}
-.gallery-strip-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:20px 12px 10px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
+.gallery-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:18px 12px 10px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
 
-/* CONTACT */
+/* CTA / FORM */
 #cta{padding:96px 0;background:var(--black);position:relative;overflow:hidden;}
 .cta-bg{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 .cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
@@ -229,11 +230,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 .cta-contact-items{display:flex;flex-direction:column;gap:14px;}
 .cta-contact-row{display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--orange);border-radius:var(--r);transition:border-left-color 0.2s;}
 .cta-contact-row:hover{border-left-color:#fff;}
-.cta-contact-icon{font-size:1.2rem;flex-shrink:0;}
-.cta-contact-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;}
-.cta-contact-val{font-size:14px;font-weight:600;color:#fff;}
-.cta-contact-val a{color:#fff;text-decoration:none;transition:color 0.2s;}
-.cta-contact-val a:hover{color:var(--orange);}
+.cta-icon{font-size:1.2rem;flex-shrink:0;}
+.cta-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;}
+.cta-val{font-size:14px;font-weight:600;color:#fff;}
+.cta-val a{color:#fff;text-decoration:none;transition:color 0.2s;}
+.cta-val a:hover{color:var(--orange);}
 .quote-form-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-top:3px solid var(--orange);border-radius:var(--r);padding:40px 36px;}
 .form-heading{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:26px;}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -272,9 +273,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(-
 /* FOOTER */
 footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:56px 0 0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:44px;padding-bottom:44px;}
-.footer-brand-mark{display:flex;align-items:center;gap:10px;margin-bottom:16px;text-decoration:none;}
-.footer-logo-sq{width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:#fff;}
-.footer-brand-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#fff;letter-spacing:0.06em;text-transform:uppercase;}
+.footer-logo-wrap{margin-bottom:16px;}
+.footer-logo-wrap img{height:52px;width:auto;filter:brightness(0) invert(1);}
 .footer-about{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.5);max-width:250px;margin-bottom:16px;}
 .footer-lic{font-size:11px;color:var(--orange);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
 .footer-col h4{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:16px;padding-bottom:6px;border-bottom:2px solid var(--orange);display:inline-block;}
@@ -304,7 +304,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   .nav-links,.nav-phone{display:none;}
   .nav-right .btn-orange{display:none;}
   .nav-burger{display:flex;}
-  .hero-content{grid-template-columns:1fr;gap:0;padding:90px 20px 72px;}
+  .hero-content{grid-template-columns:1fr;gap:0;padding:100px 20px 72px;}
   .hero-right{display:none;}
   .about-grid,.why-grid,.areas-grid,.cta-inner,.faq-grid{grid-template-columns:1fr;gap:44px;}
   .about-right{display:none;}
@@ -341,7 +341,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" class="nav-logo-img" />
+      <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" />
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -361,7 +361,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 
 <!-- MOBILE DRAWER -->
 <div class="nav-drawer" id="drawer">
-  <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" style="height:52px;width:auto;object-fit:contain;margin-bottom:12px;opacity:0.92;" />
+  <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" />
   <a href="#services" onclick="closeDrawer()">Services</a>
   <a href="#why" onclick="closeDrawer()">Why Alta</a>
   <a href="#process" onclick="closeDrawer()">Our Process</a>
@@ -382,7 +382,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
     <div class="hero-left">
       <div class="hero-eyebrow">Snohomish County's Trusted Painters</div>
       <h1 class="hero-h1">PAINT IT<br><span class="accent">RIGHT.</span><br><span class="stroke">GUARANTEED.</span></h1>
-      <p class="hero-sub">Family-owned painting contractor serving Snohomish County and surrounding areas. Exterior, interior, and cabinet refinishing — done clean, done right, backed by a 3-year warranty.</p>
+      <p class="hero-sub">Family-owned painting contractor serving Snohomish County and surrounding areas. Exterior, interior, and cabinet refinishing. Done clean, done right, backed by a 3-year warranty.</p>
       <div class="hero-actions">
         <a href="#cta" class="btn-orange btn-orange-lg">Get a Free Quote</a>
         <a href="tel:+14256862337" class="btn-outline-white">📞 (425) 686-2337</a>
@@ -395,12 +395,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       </div>
     </div>
     <div class="hero-right">
-      <img class="hero-img-main" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting — Alta Exteriors LLC" />
-      <img class="hero-img-accent" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing — Alta Exteriors LLC" />
-      <div class="hero-badge">
-        <span class="hero-badge-num">3YR</span>
-        <div class="hero-badge-txt">Warranty</div>
-      </div>
+      <img class="hero-img-main" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting" />
+      <img class="hero-img-accent" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing" />
+      <div class="hero-badge"><span class="hero-badge-num">3YR</span><div class="hero-badge-txt">Warranty</div></div>
     </div>
   </div>
   <div class="hero-wave">
@@ -424,9 +421,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="reveal">
         <div class="eyebrow">Who We Are</div>
         <h2 class="h2">ALTA EXTERIORS<br>IS FAMILY.</h2>
-        <p>We started Alta Exteriors LLC because we believed homeowners in Snohomish County deserved a painting crew they could actually trust — people who show up on time, prep correctly, and stand behind their work.</p>
+        <p>We started Alta Exteriors LLC because we believed homeowners in Snohomish County deserved a painting crew they could actually trust. People who show up on time, prep correctly, and stand behind their work.</p>
         <p>We're a family-owned operation. That means you get real communication, real accountability, and a <strong>3-year workmanship warranty</strong> that we actually honor. No chasing us down afterward.</p>
-        <p>We do exterior painting, interior painting, and kitchen cabinet refinishing — and we do all three at a professional level.</p>
+        <p>We do exterior painting, interior painting, and kitchen cabinet refinishing. We do all three at a professional level.</p>
         <div class="about-tags">
           <span class="tag">Family Owned</span><span class="tag">Licensed &amp; Insured</span><span class="tag">3-Year Warranty</span><span class="tag">Free Estimates</span><span class="tag">Snohomish Co.</span>
         </div>
@@ -438,11 +435,8 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="about-right reveal rd2">
         <div class="about-img-stack">
           <img class="about-img-main" src="https://github.com/user-attachments/assets/83036853-f4c1-4321-a43e-e61255200819" alt="Alta Exteriors painter at work" />
-          <img class="about-img-sub" src="https://github.com/user-attachments/assets/19cea454-0e75-42d5-86bf-b762dedcb30a" alt="Interior painting — Alta Exteriors" />
-          <div class="about-stat-box">
-            <span class="about-stat-num">100%</span>
-            <div class="about-stat-txt">Satisfaction</div>
-          </div>
+          <img class="about-img-sub" src="https://github.com/user-attachments/assets/19cea454-0e75-42d5-86bf-b762dedcb30a" alt="Interior painting" />
+          <div class="about-stat-box"><span class="about-stat-num">100%</span><div class="about-stat-txt">Satisfaction</div></div>
         </div>
       </div>
     </div>
@@ -463,7 +457,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <img class="service-photo" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting services" />
+        <img class="service-photo" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting" />
         <div class="service-n">01</div>
         <div class="service-body">
           <div class="service-icon-wrap">🏠</div>
@@ -478,12 +472,12 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         </div>
       </div>
       <div class="service-card reveal rd1">
-        <img class="service-photo" src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior painting services" />
+        <img class="service-photo" src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior painting" />
         <div class="service-n">02</div>
         <div class="service-body">
           <div class="service-icon-wrap">🖌️</div>
           <div class="service-name">Interior Painting</div>
-          <p class="service-desc">We protect your furniture, prep your walls, and deliver a clean, consistent finish in any room. Walls, ceilings, trim — we handle it all without the mess.</p>
+          <p class="service-desc">We protect your furniture, prep your walls, and deliver a clean, consistent finish in any room. Walls, ceilings, trim. We handle it all without the mess.</p>
           <div class="service-detail">
             <div class="service-detail-item">Full furniture &amp; floor protection</div>
             <div class="service-detail-item">Wall patching &amp; prep included</div>
@@ -493,12 +487,12 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         </div>
       </div>
       <div class="service-card reveal rd2">
-        <img class="service-photo" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing services" />
+        <img class="service-photo" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing" />
         <div class="service-n">03</div>
         <div class="service-body">
           <div class="service-icon-wrap">🪵</div>
           <div class="service-name">Cabinet Refinishing</div>
-          <p class="service-desc">A full cabinet replacement costs $15,000+. We refinish your kitchen cabinets to a factory-smooth finish for a fraction of the cost — new look, zero demolition.</p>
+          <p class="service-desc">A full cabinet replacement costs $15,000+. We refinish your kitchen cabinets to a factory-smooth finish for a fraction of the cost. New look, zero demolition.</p>
           <div class="service-detail">
             <div class="service-detail-item">Degreasing &amp; thorough prep</div>
             <div class="service-detail-item">Spray-applied smooth finish</div>
@@ -519,10 +513,10 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         <div class="eyebrow">Why Alta</div>
         <h2 class="h2">WE BACK EVERY JOB WE DO.</h2>
         <p>There are a lot of painting contractors out there. Most of them will show up, do the work fast, and move on. You're stuck with the results.</p>
-        <p>We do it differently. We take the time to do proper prep — because that's where most jobs actually fail. And when we're done, you have a 3-year warranty to prove we're confident in it.</p>
+        <p>We do it differently. We take the time to do proper prep, because that's where most jobs actually fail. And when we're done, you have a 3-year warranty to prove we're confident in it.</p>
         <div class="warranty-box">
           <h3>⭐ 3-Year Workmanship Warranty</h3>
-          <p>Every job we complete is backed by our 3-year warranty. Peeling, cracking, or adhesion issues? We come back and fix it — no charge, no argument.</p>
+          <p>Every job we complete is backed by our 3-year warranty. Peeling, cracking, or adhesion issues? We come back and fix it. No charge, no argument.</p>
         </div>
       </div>
       <div class="reveal rd1">
@@ -565,17 +559,17 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="review-card feat reveal">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Alta Exteriors did an incredible job on our home exterior. Juan and his team were professional, clean, and finished ahead of schedule. Our house looks brand new."</p>
-        <div class="review-author"><div class="review-av">M</div><div><div class="review-name">Maria T.</div><div class="review-meta">Everett, WA — Exterior Paint</div></div></div>
+        <div class="review-author"><div class="review-av">M</div><div><div class="review-name">Maria T.</div><div class="review-meta">Everett, WA · Exterior Paint</div></div></div>
       </div>
       <div class="review-card reveal rd1">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"We had our kitchen cabinets refinished and the result is stunning. Saved us thousands over a full replacement. The finish is smooth, the color is perfect, and they cleaned up spotlessly."</p>
-        <div class="review-author"><div class="review-av">D</div><div><div class="review-name">David &amp; Sarah K.</div><div class="review-meta">Snohomish, WA — Cabinet Refinishing</div></div></div>
+        <div class="review-author"><div class="review-av">D</div><div><div class="review-name">David &amp; Sarah K.</div><div class="review-meta">Snohomish, WA · Cabinet Refinishing</div></div></div>
       </div>
       <div class="review-card reveal rd2">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Called for a quote on a Tuesday, they were out Wednesday, started Friday. Interior of our whole house done in three days. Would hire again without hesitation."</p>
-        <div class="review-author"><div class="review-av">R</div><div><div class="review-name">Rachel M.</div><div class="review-meta">Monroe, WA — Interior Paint</div></div></div>
+        <div class="review-author"><div class="review-av">R</div><div><div class="review-name">Rachel M.</div><div class="review-meta">Monroe, WA · Interior Paint</div></div></div>
       </div>
     </div>
   </div>
@@ -588,17 +582,17 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="reveal">
         <div class="eyebrow">Where We Work</div>
         <h2 class="h2">SERVICE AREAS</h2>
-        <p>We serve Snohomish County and surrounding communities. Not sure if we cover your area? Call us — we'll let you know.</p>
+        <p>We serve Snohomish County and surrounding communities. Not sure if we cover your area? Call us and we'll let you know.</p>
         <div class="areas-list">
           <div class="area-item">Monroe</div><div class="area-item">Snohomish</div><div class="area-item">Everett</div><div class="area-item">Marysville</div><div class="area-item">Arlington</div><div class="area-item">Mill Creek</div><div class="area-item">Bothell</div><div class="area-item">Lynnwood</div><div class="area-item">Edmonds</div><div class="area-item">Shoreline</div><div class="area-item">Duvall</div><div class="area-item">Issaquah</div><div class="area-item">Kent</div><div class="area-item">Seattle</div>
         </div>
         <div style="margin-top:22px;"><a href="#cta" class="btn-orange">Not on the list? Call us.</a></div>
       </div>
       <div class="areas-map reveal rd2">
-        <img src="https://github.com/user-attachments/assets/5e678024-62e4-4f30-9741-6b63d50662fb" alt="Seattle skyline — serving greater Seattle and Snohomish County" />
+        <img src="https://github.com/user-attachments/assets/5e678024-62e4-4f30-9741-6b63d50662fb" alt="Seattle skyline" />
         <div class="areas-map-overlay">
           <h3>SNOHOMISH<br>COUNTY</h3>
-          <p>&amp; Surrounding Areas — WA State</p>
+          <p>&amp; Surrounding Areas, WA State</p>
         </div>
       </div>
     </div>
@@ -607,13 +601,13 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 
 <!-- GALLERY -->
 <div class="gallery-strip">
-  <div><img src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting" /><div class="gallery-strip-label">Exterior</div></div>
-  <div><img src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior painting" /><div class="gallery-strip-label">Interior</div></div>
-  <div><img src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing" /><div class="gallery-strip-label">Cabinets</div></div>
-  <div><img src="https://github.com/user-attachments/assets/83036853-f4c1-4321-a43e-e61255200819" alt="Our crew" /><div class="gallery-strip-label">Our Crew</div></div>
+  <div><img src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior" /><div class="gallery-label">Exterior</div></div>
+  <div><img src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior" /><div class="gallery-label">Interior</div></div>
+  <div><img src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinets" /><div class="gallery-label">Cabinets</div></div>
+  <div><img src="https://github.com/user-attachments/assets/83036853-f4c1-4321-a43e-e61255200819" alt="Our Crew" /><div class="gallery-label">Our Crew</div></div>
 </div>
 
-<!-- CONTACT / FORM -->
+<!-- CTA / FORM -->
 <section id="cta">
   <div class="cta-bg"></div>
   <div class="container">
@@ -621,12 +615,12 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="cta-left reveal">
         <div class="eyebrow light">Get Started</div>
         <h2>READY FOR A FRESH COAT?</h2>
-        <p>Exterior, interior, or cabinets — we'll come out, look at the job, and give you a straight written quote. No pressure, no obligation, and yes, it's actually free.</p>
+        <p>Exterior, interior, or cabinets. We'll come out, look at the job, and give you a straight written quote. No pressure, no obligation, and yes, it's actually free.</p>
         <div class="cta-contact-items">
-          <div class="cta-contact-row"><span class="cta-contact-icon">📞</span><div><div class="cta-contact-lbl">Call or Text</div><div class="cta-contact-val"><a href="tel:+14256862337">(425) 686-2337</a></div></div></div>
-          <div class="cta-contact-row"><span class="cta-contact-icon">✉️</span><div><div class="cta-contact-lbl">Email Us</div><div class="cta-contact-val"><a href="/cdn-cgi/l/email-protection#4d2c21392c283539283f24223f3e21212e0d2a202c2421632e2220"><span class="__cf_email__" data-cfemail="5839342c393d202c3d2a31372a2b34343b183f35393134763b3735">[email&#160;protected]</span></a></div></div></div>
-          <div class="cta-contact-row"><span class="cta-contact-icon">🌐</span><div><div class="cta-contact-lbl">Website</div><div class="cta-contact-val"><a href="https://www.altaexteriorswa.com/" target="_blank">altaexteriorswa.com</a></div></div></div>
-          <div class="cta-contact-row"><span class="cta-contact-icon">📍</span><div><div class="cta-contact-lbl">Service Area</div><div class="cta-contact-val">Snohomish Co. &amp; Greater Seattle</div></div></div>
+          <div class="cta-contact-row"><span class="cta-icon">📞</span><div><div class="cta-lbl">Call or Text</div><div class="cta-val"><a href="tel:+14256862337">(425) 686-2337</a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-icon">✉️</span><div><div class="cta-lbl">Email Us</div><div class="cta-val"><a href="/cdn-cgi/l/email-protection#9ffef3ebfefae7ebfaedf6f0edecf3f3fcdff8f2fef6f3b1fcf0f2"><span class="__cf_email__" data-cfemail="3b5a574f5a5e434f5e49525449485757587b5c565a525715585456">[email&#160;protected]</span></a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-icon">🌐</span><div><div class="cta-lbl">Website</div><div class="cta-val"><a href="https://www.altaexteriorswa.com/" target="_blank">altaexteriorswa.com</a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-icon">📍</span><div><div class="cta-lbl">Service Area</div><div class="cta-val">Snohomish Co. &amp; Greater Seattle</div></div></div>
         </div>
       </div>
       <div class="reveal rd2">
@@ -634,7 +628,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
           <div class="form-heading">Request a Free Estimate</div>
           <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="59edd30f-f5ac-41e1-b7fa-db07e579acda" />
-            <input type="hidden" name="subject" value="New Quote Request — Alta Exteriors LLC" />
+            <input type="hidden" name="subject" value="New Quote Request | Alta Exteriors LLC" />
             <input type="hidden" name="from_name" value="Alta Exteriors Website" />
             <input type="checkbox" name="botcheck" style="display:none;" />
             <div class="form-row-2">
@@ -643,25 +637,17 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
             </div>
             <div class="form-group"><label for="f-phone">Phone</label><input type="tel" id="f-phone" name="phone" placeholder="(425) 000-0000" /></div>
             <div class="form-group">
-              <label for="f-service">Service Needed</label>
-              <select id="f-service" name="service">
+              <label for="f-svc">Service Needed</label>
+              <select id="f-svc" name="service">
                 <option value="" disabled selected>Select a service...</option>
-                <option>Exterior Painting</option>
-                <option>Interior Painting</option>
-                <option>Cabinet Refinishing</option>
-                <option>Multiple Services</option>
-                <option>Not Sure — Need Estimate</option>
+                <option>Exterior Painting</option><option>Interior Painting</option><option>Cabinet Refinishing</option><option>Multiple Services</option><option>Not Sure, Need Estimate</option>
               </select>
             </div>
-            <div class="form-group"><label for="f-msg">Project Details *</label><textarea id="f-msg" name="message" placeholder="Describe your project — property address, scope, timeline, or anything else that helps us give you an accurate quote..." required></textarea></div>
+            <div class="form-group"><label for="f-msg">Project Details *</label><textarea id="f-msg" name="message" placeholder="Describe your project: address, scope, timeline, or anything that helps us give you an accurate quote..." required></textarea></div>
             <div class="form-submit"><button type="submit" id="submitBtn">Request My Free Quote →</button></div>
             <p class="form-note">No spam. No pressure. Just a free, honest estimate.</p>
           </form>
-          <div id="successMsg">
-            <div class="s-icon">✅</div>
-            <div class="s-title">Request Sent!</div>
-            <p class="s-sub">We'll be in touch within one business day.<br>Talk soon — (425) 686-2337</p>
-          </div>
+          <div id="successMsg"><div class="s-icon">✅</div><div class="s-title">Request Sent!</div><p class="s-sub">We'll be in touch within one business day.<br>Talk soon. (425) 686-2337</p></div>
         </div>
       </div>
     </div>
@@ -678,17 +664,17 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         <p>If you don't see your question, just call or text us. We'll give you a straight answer.</p>
         <div style="margin-top:24px;border-radius:var(--rlg);overflow:hidden;background:var(--black);padding:28px;">
           <div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--orange);text-transform:uppercase;line-height:1;margin-bottom:10px;">FREE ESTIMATES</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">On all jobs — exterior, interior, and cabinet refinishing. We come out, look at it, and give you a written number. No charge.</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">On all jobs: exterior, interior, and cabinet refinishing. We come out, look at it, and give you a written number. No charge.</div>
           <a href="tel:+14256862337" style="display:inline-block;margin-top:16px;font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--orange);text-decoration:none;">(425) 686-2337</a>
         </div>
       </div>
       <div class="faq-items reveal rd1">
-        <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you offer free estimates?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes — always. We come out, assess the job, and give you a written quote at no charge. No obligation to book.</div></div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">What does the 3-year warranty cover?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Our warranty covers workmanship defects — peeling, cracking, bubbling, or adhesion failures. If it happens within 3 years, we come back and fix it at no cost.</div></div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Is cabinet refinishing worth it vs. replacement?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Almost always. Full cabinet replacement can cost $10,000–$25,000. Refinishing delivers a factory-smooth new finish for a fraction of that — and it's done in days, not weeks.</div></div></div>
+        <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you offer free estimates?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes, always. We come out, assess the job, and give you a written quote at no charge. No obligation to book.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">What does the 3-year warranty cover?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Our warranty covers workmanship defects: peeling, cracking, bubbling, or adhesion failures. If it happens within 3 years, we come back and fix it at no cost.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Is cabinet refinishing worth it vs. replacement?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Almost always. Full cabinet replacement can cost $10,000–$25,000. Refinishing delivers a factory-smooth new finish for a fraction of that. Done in days, not weeks.</div></div></div>
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">How long does an exterior paint job take?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Most residential exteriors take 2–4 days depending on size and complexity. We give you a specific timeline when we come out for the estimate.</div></div></div>
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Are you licensed and insured?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Alta Exteriors LLC is fully licensed and insured in Washington State. We carry general liability coverage on every job.</div></div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you serve Seattle or King County?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes — we serve Seattle, Kent, Issaquah, and other King County cities in addition to our Snohomish County base. Call us if you're not sure whether we cover your area.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you serve Seattle or King County?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes, we serve Seattle, Kent, Issaquah, and other King County cities in addition to our Snohomish County base. Call us if you're not sure.</div></div></div>
       </div>
     </div>
   </div>
@@ -699,9 +685,11 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="#" class="footer-brand-mark"><img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" class="footer-logo-img" /></a>
+        <div class="footer-logo-wrap">
+          <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" />
+        </div>
         <p class="footer-about">Family-owned painting contractor serving Snohomish County and surrounding areas. Licensed, insured, and backed by a 3-year warranty.</p>
-        <div class="footer-lic">Licensed &amp; Insured — Washington State</div>
+        <div class="footer-lic">Licensed &amp; Insured | Washington State</div>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -719,16 +707,16 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         <h4>Contact</h4>
         <div class="footer-contacts">
           <div class="fc"><span class="fc-lbl">Phone / Text</span><span class="fc-val"><a href="tel:+14256862337">(425) 686-2337</a></span></div>
-          <div class="fc"><span class="fc-lbl">Email</span><span class="fc-val"><a href="/cdn-cgi/l/email-protection#2c4d40584d495458495e45435e5f40404f6c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="5a3b362e3b3f222e3f28333528293636391a3d373b333674393537">[email&#160;protected]</span></a></span></div>
+          <div class="fc"><span class="fc-lbl">Email</span><span class="fc-val"><a href="/cdn-cgi/l/email-protection#1d7c71697c786569786f74726f6e71717e5d7a707c7471337e7270"><span class="__cf_email__" data-cfemail="4d2c21392c283539283f24223f3e21212e0d2a202c2421632e2220">[email&#160;protected]</span></a></span></div>
           <div class="fc"><span class="fc-lbl">Service Area</span><span class="fc-val">Snohomish Co. &amp; King Co., WA</span></div>
           <div class="fc"><span class="fc-lbl">Website</span><span class="fc-val"><a href="https://www.altaexteriorswa.com/" target="_blank">altaexteriorswa.com</a></span></div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Alta Exteriors LLC — All rights reserved</span>
+      <span class="footer-copy">© 2026 Alta Exteriors LLC. All rights reserved</span>
       <div class="footer-social">
-        <a href="/cdn-cgi/l/email-protection#debfb2aabfbba6aabbacb7b1acadb2b2bd9eb9b3bfb7b2f0bdb1b3" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="/cdn-cgi/l/email-protection#60010c14010518140512090f12130c0c0320070d01090c4e030f0d" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
         <a href="tel:+14256862337" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
         <a href="https://www.altaexteriorswa.com/" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
       </div>
@@ -749,30 +737,24 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   const revEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   revEls.forEach(el => io.observe(el));
-
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
-
   const form = document.getElementById('quoteForm');
   const submitBtn = document.getElementById('submitBtn');
   const successMsg = document.getElementById('successMsg');
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const orig = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
     try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
-      const data = await res.json();
-      i
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST',
