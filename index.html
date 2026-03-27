@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ── TOKENS ── */
 :root {
   --orange: #e8461c;
   --orange-dark: #c73a16;
@@ -29,682 +28,320 @@
   --rlg: 20px;
   --rpill: 50px;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--off-white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
-*,*::before,*::after { box-sizing: border-box; margin:0; padding:0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--off-white);
-  color: var(--black);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.06);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.nav-logo-mark{width:34px;height:34px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
+.nav-logo-img{height:42px;width:auto;display:block;object-fit:contain;filter:brightness(1);}
+.footer-logo-img{height:64px;width:auto;display:block;object-fit:contain;margin-bottom:4px;}
+.nav-logo-text{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1.1;}
+.nav-logo-sub{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--orange);}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.nav-phone{color:rgba(255,255,255,0.8);font-size:13px;font-weight:600;text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+.nav-phone:hover{color:var(--orange);}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;flex-shrink:0;}
+.nav-burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-burger.open span:nth-child(2){opacity:0;}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-drawer{position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--black-soft);z-index:199;display:flex;flex-direction:column;padding:28px 24px 36px;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
+.nav-drawer.open{transform:translateX(0);}
+.nav-drawer a{color:rgba(255,255,255,0.82);text-decoration:none;font-family:'Oswald',sans-serif;font-size:22px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:block;transition:color 0.2s;}
+.nav-drawer a:hover{color:var(--orange);}
+.drawer-cta{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
+.drawer-cta a{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;text-align:center;border-bottom:none!important;padding:14px 20px!important;border-radius:var(--rpill)!important;letter-spacing:0.04em;}
+.dcta-orange{background:var(--orange)!important;color:#fff!important;}
+.dcta-outline{border:2px solid rgba(255,255,255,0.3)!important;color:rgba(255,255,255,0.85)!important;}
 
-/* ══════════════════════
-   NAV
-══════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 60px;
-  background: var(--black);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  transition: background 0.3s;
-}
-.nav-inner {
-  max-width: 1240px; margin: 0 auto;
-  padding: 0 24px; height: 100%;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-  text-decoration: none; flex-shrink: 0;
-}
-.nav-logo-mark {
-  width: 34px; height: 34px; background: var(--orange);
-  border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 700;
-  color: #fff; letter-spacing: 0.02em; flex-shrink: 0;
-}
-.nav-logo-text {
-  font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600;
-  color: #fff; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.1;
-}
-.nav-logo-sub { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+/* BUTTONS */
+.btn-orange{background:var(--orange);color:#fff;padding:13px 28px;font-size:14px;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:none;cursor:pointer;border-radius:var(--rpill);display:inline-block;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(232,70,28,0.35);}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,70,28,0.4);}
+.btn-orange-lg{padding:16px 36px;font-size:16px;}
+.btn-dark{background:var(--black);color:#fff;padding:13px 28px;font-size:14px;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:none;cursor:pointer;border-radius:var(--rpill);display:inline-block;transition:background 0.2s,transform 0.15s;}
+.btn-dark:hover{background:var(--black-mid);transform:translateY(-2px);}
+.btn-outline-dark{background:transparent;color:var(--black);padding:13px 28px;font-size:14px;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:2px solid rgba(26,26,26,0.3);cursor:pointer;border-radius:var(--rpill);display:inline-block;transition:all 0.2s;}
+.btn-outline-dark:hover{border-color:var(--orange);color:var(--orange);}
+.btn-outline-white{background:transparent;color:#fff;padding:13px 28px;font-size:14px;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:2px solid rgba(255,255,255,0.35);cursor:pointer;border-radius:var(--rpill);display:inline-block;transition:all 0.2s;}
+.btn-outline-white:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.08);}
 
-.nav-links {
-  display: flex; gap: 28px; list-style: none; align-items: center;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.7); text-decoration: none;
-  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
-  text-transform: uppercase; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--orange); }
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--black);overflow:hidden;}
+.hero-texture{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(232,70,28,0.18) 0%,transparent 65%);pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%;padding:100px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,70,28,0.15);border:1px solid rgba(232,70,28,0.3);padding:5px 14px;border-radius:var(--rpill);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-light);margin-bottom:24px;}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(1.6);}}
+.hero-h1{font-family:'Oswald',sans-serif;font-size:clamp(52px,6.5vw,96px);font-weight:700;line-height:0.95;letter-spacing:-0.01em;color:#fff;margin-bottom:24px;text-transform:uppercase;}
+.hero-h1 .accent{color:var(--orange);}
+.hero-h1 .stroke{-webkit-text-stroke:2px rgba(255,255,255,0.35);color:transparent;}
+.hero-sub{font-size:17px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.65);max-width:460px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.hero-trust{display:flex;gap:24px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;}
+.trust-dot{width:28px;height:28px;background:rgba(232,70,28,0.15);border:1px solid rgba(232,70,28,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.trust-txt{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);}
+.hero-right{position:relative;height:560px;}
+.hero-img-main{position:absolute;top:0;right:0;width:75%;height:400px;object-fit:cover;border-radius:var(--rlg);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.hero-img-accent{position:absolute;bottom:0;left:0;width:55%;height:270px;object-fit:cover;border-radius:var(--r);box-shadow:0 12px 36px rgba(0,0,0,0.4);border:3px solid var(--black);}
+.hero-badge{position:absolute;bottom:60px;right:-10px;background:var(--orange);color:#fff;border-radius:var(--r);padding:14px 18px;text-align:center;box-shadow:0 8px 28px rgba(232,70,28,0.45);z-index:3;}
+.hero-badge-num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;line-height:1;display:block;}
+.hero-badge-txt{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9;margin-top:2px;}
+.hero-wave{position:absolute;bottom:-1px;left:0;right:0;z-index:3;}
 
-.nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-.nav-phone { color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
-.nav-phone:hover { color: var(--orange); }
+/* TICKER */
+.ticker{background:var(--orange);padding:11px 0;overflow:hidden;position:relative;z-index:4;}
+.ticker-track{display:flex;animation:tick 24s linear infinite;white-space:nowrap;width:max-content;}
+.ticker-item{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;padding:0 28px;display:flex;align-items:center;gap:14px;}
+.ticker-item::after{content:'✦';font-size:9px;opacity:0.7;}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* hamburger */
-.nav-burger {
-  display: none; background: none; border: none; cursor: pointer;
-  flex-direction: column; gap: 5px; padding: 6px; flex-shrink: 0;
-}
-.nav-burger span {
-  display: block; width: 22px; height: 2px;
-  background: #fff; border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; }
-.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* HELPERS */
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--orange);flex-shrink:0;}
+.eyebrow.light{color:rgba(255,255,255,0.6);}
+.h2{font-family:'Oswald',sans-serif;font-size:clamp(34px,4vw,58px);font-weight:700;line-height:0.97;letter-spacing:-0.01em;text-transform:uppercase;color:var(--black);}
+.h2.light{color:#fff;}
+.divider{height:4px;background:linear-gradient(90deg,var(--orange),#ff8a6e,var(--orange-dark));}
 
-/* drawer */
-.nav-drawer {
-  position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
-  background: var(--black-soft); z-index: 199;
-  display: flex; flex-direction: column; padding: 28px 24px 36px;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-drawer.open { transform: translateX(0); }
-.nav-drawer a {
-  color: rgba(255,255,255,0.82); text-decoration: none;
-  font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 500;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-  display: block; transition: color 0.2s;
-}
-.nav-drawer a:last-of-type { border-bottom: none; }
-.nav-drawer a:hover { color: var(--orange); }
-.drawer-cta { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
-.drawer-cta a {
-  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
-  text-align: center; border-bottom: none !important; padding: 14px 20px !important;
-  border-radius: var(--rpill) !important; letter-spacing: 0.04em;
-}
-.dcta-orange { background: var(--orange) !important; color: #fff !important; }
-.dcta-outline { border: 2px solid rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.85) !important; }
+/* ABOUT */
+#about{padding:88px 0;background:var(--off-white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-left .h2{margin-bottom:22px;}
+.about-left p{font-size:15px;line-height:1.85;color:var(--text-mid);margin-bottom:16px;}
+.about-left p strong{color:var(--black);font-weight:600;}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+.tag{background:var(--warm-gray);border:1px solid var(--border);color:var(--text-mid);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:5px 13px;border-radius:var(--rpill);}
+.about-right{position:relative;}
+.about-img-stack{position:relative;height:480px;}
+.about-img-main{position:absolute;top:0;right:0;width:82%;height:340px;object-fit:cover;object-position:center;border-radius:var(--rlg);box-shadow:var(--shadow-lg);}
+.about-img-sub{position:absolute;bottom:0;left:0;width:54%;height:230px;object-fit:cover;object-position:center;border-radius:var(--r);box-shadow:var(--shadow);border:4px solid var(--off-white);}
+.about-stat-box{position:absolute;bottom:50px;right:-8px;background:var(--orange);color:#fff;border-radius:var(--r);padding:16px 20px;text-align:center;box-shadow:0 8px 28px rgba(232,70,28,0.4);}
+.about-stat-num{font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;line-height:1;display:block;}
+.about-stat-txt{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;opacity:0.9;margin-top:3px;}
 
-/* ══════════════════════
-   BUTTONS
-══════════════════════ */
-.btn-orange {
-  background: var(--orange); color: #fff;
-  padding: 13px 28px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-decoration: none; border: none; cursor: pointer;
-  border-radius: var(--rpill); display: inline-block;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 16px rgba(232,70,28,0.35);
-}
-.btn-orange:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,70,28,0.4); }
-.btn-orange-lg { padding: 16px 36px; font-size: 16px; }
+/* SERVICES */
+#services{padding:88px 0;background:var(--black);}
+.services-header{margin-bottom:52px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+.services-header .h2{color:#fff;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.service-card{background:var(--black-soft);position:relative;overflow:hidden;transition:background 0.3s;}
+.service-card:first-child{border-radius:var(--rlg) 0 0 var(--rlg);}
+.service-card:last-child{border-radius:0 var(--rlg) var(--rlg) 0;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;z-index:2;}
+.service-card:hover{background:var(--black-mid);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-photo{width:100%;height:220px;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.service-card:hover .service-photo{transform:scale(1.04);}
+.service-body{padding:32px;}
+.service-n{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:rgba(255,255,255,0.04);line-height:1;position:absolute;top:228px;right:20px;}
+.service-icon-wrap{width:52px;height:52px;background:rgba(232,70,28,0.12);border:1px solid rgba(232,70,28,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
+.service-name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#fff;margin-bottom:12px;}
+.service-desc{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);}
+.service-detail{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;gap:6px;}
+.service-detail-item{font-size:12px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:7px;}
+.service-detail-item::before{content:'→';color:var(--orange);font-size:11px;}
 
-.btn-dark {
-  background: var(--black); color: #fff;
-  padding: 13px 28px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-decoration: none; border: none; cursor: pointer;
-  border-radius: var(--rpill); display: inline-block;
-  transition: background 0.2s, transform 0.15s;
-}
-.btn-dark:hover { background: var(--black-mid); transform: translateY(-2px); }
+/* WHY */
+#why{padding:88px 0;background:var(--off-white);}
+.why-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start;}
+.why-left .h2{margin-bottom:22px;}
+.why-left p{font-size:15px;line-height:1.85;color:var(--text-mid);margin-bottom:20px;}
+.warranty-box{background:var(--black);color:#fff;padding:26px;border-radius:var(--r);margin-top:24px;position:relative;overflow:hidden;box-shadow:0 8px 28px rgba(26,26,26,0.2);}
+.warranty-box::before{content:'3YR';position:absolute;right:16px;top:8px;font-family:'Oswald',sans-serif;font-size:72px;font-weight:700;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;}
+.warranty-box h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.warranty-box p{font-size:14px;line-height:1.65;color:rgba(255,255,255,0.72);}
+.why-items{display:flex;flex-direction:column;}
+.why-item{display:grid;grid-template-columns:50px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--border-light);align-items:start;}
+.why-item:first-child{border-top:1px solid var(--border-light);}
+.why-icon{width:50px;height:50px;background:var(--warm-gray);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.why-content h4{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--black);margin-bottom:4px;}
+.why-content p{font-size:13px;line-height:1.7;color:var(--text-light);}
 
-.btn-outline-dark {
-  background: transparent; color: var(--black);
-  padding: 13px 28px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-decoration: none;
-  border: 2px solid rgba(26,26,26,0.3); cursor: pointer;
-  border-radius: var(--rpill); display: inline-block; transition: all 0.2s;
-}
-.btn-outline-dark:hover { border-color: var(--orange); color: var(--orange); }
+/* PROCESS */
+#process{padding:88px 0;background:var(--warm-gray);}
+.process-header{margin-bottom:56px;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.process-steps::before{content:'';position:absolute;top:32px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--orange),rgba(232,70,28,0.2));z-index:0;}
+.process-step{position:relative;z-index:1;padding:0 20px;text-align:center;}
+.step-circle{width:64px;height:64px;background:var(--off-white);border:3px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 14px rgba(232,70,28,0.2);transition:background 0.3s,border-color 0.3s;}
+.process-step:hover .step-circle{background:var(--orange);}
+.step-num{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--orange);transition:color 0.3s;}
+.process-step:hover .step-num{color:#fff;}
+.step-title{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--black);margin-bottom:8px;}
+.step-desc{font-size:13px;line-height:1.65;color:var(--text-light);}
 
-.btn-outline-white {
-  background: transparent; color: #fff;
-  padding: 13px 28px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-decoration: none;
-  border: 2px solid rgba(255,255,255,0.35); cursor: pointer;
-  border-radius: var(--rpill); display: inline-block; transition: all 0.2s;
-}
-.btn-outline-white:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+/* REVIEWS */
+#reviews{padding:88px 0;background:var(--black);}
+.reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px;}
+.reviews-header .h2{color:#fff;}
+.rating-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:10px 18px;border-radius:var(--rpill);}
+.rating-stars{color:var(--orange);font-size:15px;letter-spacing:2px;}
+.rating-score{font-family:'Oswald',sans-serif;font-size:24px;color:#fff;line-height:1;}
+.rating-label{font-size:11px;color:rgba(255,255,255,0.45);font-weight:500;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.review-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:26px;transition:background 0.3s;}
+.review-card:hover{background:rgba(255,255,255,0.08);}
+.review-card.feat{background:rgba(232,70,28,0.1);border-color:rgba(232,70,28,0.25);}
+.review-stars{color:var(--orange);font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+.review-text{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.78);font-style:italic;margin-bottom:18px;}
+.review-author{display:flex;align-items:center;gap:10px;}
+.review-av{width:32px;height:32px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;font-family:'Oswald',sans-serif;flex-shrink:0;}
+.review-name{font-size:13px;font-weight:600;color:#fff;}
+.review-meta{font-size:11px;color:rgba(255,255,255,0.4);margin-top:1px;}
 
-/* ══════════════════════
-   HERO
-══════════════════════ */
-#hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center;
-  background: var(--black); overflow: hidden;
-}
-.hero-texture {
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-glow {
-  position: absolute; top: -20%; right: -10%; width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(232,70,28,0.18) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-content {
-  position: relative; z-index: 2;
-  max-width: 1240px; margin: 0 auto; width: 100%;
-  padding: 100px 24px 80px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
-}
-.hero-left { }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(232,70,28,0.15); border: 1px solid rgba(232,70,28,0.3);
-  padding: 5px 14px; border-radius: var(--rpill);
-  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--orange-light); margin-bottom: 24px;
-}
-.hero-eyebrow::before {
-  content:''; width:6px; height:6px; background:var(--orange);
-  border-radius:50%; animation: blink 2s ease-in-out infinite;
-}
-@keyframes blink { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.3;transform:scale(1.6);} }
+/* AREAS */
+#areas{padding:80px 0;background:var(--off-white);}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.areas-left .h2{margin-bottom:18px;}
+.areas-left p{font-size:15px;line-height:1.8;color:var(--text-mid);margin-bottom:26px;}
+.areas-list{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.area-item{padding:10px 0;border-bottom:1px solid var(--border-light);font-size:14px;font-weight:500;color:var(--text-mid);display:flex;align-items:center;gap:8px;}
+.area-item::before{content:'→';color:var(--orange);font-size:12px;}
+.areas-map{position:relative;height:380px;border-radius:var(--rlg);overflow:hidden;box-shadow:var(--shadow-lg);}
+.areas-map img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.areas-map-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,70,28,0.8) 0%,rgba(26,26,26,0.65) 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:36px;}
+.areas-map-overlay h3{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:8px;}
+.areas-map-overlay p{font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:0.06em;}
 
-.hero-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(52px, 6.5vw, 96px);
-  font-weight: 700; line-height: 0.95; letter-spacing: -0.01em;
-  color: #fff; margin-bottom: 24px; text-transform: uppercase;
-}
-.hero-h1 .accent { color: var(--orange); }
-.hero-h1 .stroke {
-  -webkit-text-stroke: 2px rgba(255,255,255,0.35);
-  color: transparent;
-}
-.hero-sub {
-  font-size: 17px; font-weight: 300; line-height: 1.75;
-  color: rgba(255,255,255,0.65); max-width: 460px; margin-bottom: 36px;
-}
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+/* GALLERY */
+.gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);height:220px;gap:4px;overflow:hidden;}
+.gallery-strip div{overflow:hidden;position:relative;}
+.gallery-strip div img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.gallery-strip div:hover img{transform:scale(1.06);}
+.gallery-strip-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:20px 12px 10px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
 
-.hero-trust {
-  display: flex; gap: 24px; margin-top: 48px; padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap;
-}
-.trust-item { display: flex; align-items: center; gap: 8px; }
-.trust-dot {
-  width: 28px; height: 28px; background: rgba(232,70,28,0.15);
-  border: 1px solid rgba(232,70,28,0.3); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; flex-shrink: 0;
-}
-.trust-txt { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); }
+/* CONTACT */
+#cta{padding:96px 0;background:var(--black);position:relative;overflow:hidden;}
+.cta-bg{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.cta-left h2{font-family:'Oswald',sans-serif;font-size:clamp(36px,4.5vw,64px);font-weight:700;line-height:0.95;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+.cta-left p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:32px;max-width:440px;}
+.cta-contact-items{display:flex;flex-direction:column;gap:14px;}
+.cta-contact-row{display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--orange);border-radius:var(--r);transition:border-left-color 0.2s;}
+.cta-contact-row:hover{border-left-color:#fff;}
+.cta-contact-icon{font-size:1.2rem;flex-shrink:0;}
+.cta-contact-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;}
+.cta-contact-val{font-size:14px;font-weight:600;color:#fff;}
+.cta-contact-val a{color:#fff;text-decoration:none;transition:color 0.2s;}
+.cta-contact-val a:hover{color:var(--orange);}
+.quote-form-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-top:3px solid var(--orange);border-radius:var(--r);padding:40px 36px;}
+.form-heading{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:26px;}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.form-group label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;width:100%;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.2);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,70,28,0.12);}
+.form-group select option{background:#1a1a1a;color:#fff;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{margin-top:8px;}
+.form-submit button{width:100%;font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:16px;cursor:pointer;border:none;border-radius:var(--rpill);background:var(--orange);color:#fff;transition:background 0.2s,transform 0.15s;box-shadow:0 4px 16px rgba(232,70,28,0.4);}
+.form-submit button:hover{background:var(--orange-dark);transform:translateY(-2px);}
+.form-note{text-align:center;margin-top:10px;font-size:11px;color:rgba(255,255,255,0.25);}
+#successMsg{display:none;text-align:center;padding:40px 20px;}
+.s-icon{font-size:3rem;margin-bottom:16px;}
+.s-title{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.s-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;}
 
-/* Hero right — image mosaic */
-.hero-right { position: relative; height: 560px; }
-.hero-img-main {
-  position: absolute; top: 0; right: 0; width: 75%; height: 400px;
-  object-fit: cover; border-radius: var(--rlg);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-.hero-img-accent {
-  position: absolute; bottom: 0; left: 0; width: 55%; height: 270px;
-  object-fit: cover; border-radius: var(--r);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.4);
-  border: 3px solid var(--black);
-}
-.hero-badge {
-  position: absolute; bottom: 60px; right: -10px;
-  background: var(--orange); color: #fff; border-radius: var(--r);
-  padding: 14px 18px; text-align: center;
-  box-shadow: 0 8px 28px rgba(232,70,28,0.45);
-  z-index: 3;
-}
-.hero-badge-num { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; line-height: 1; display: block; }
-.hero-badge-txt { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; margin-top: 2px; }
+/* FAQ */
+#faq{padding:88px 0;background:var(--off-white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+.faq-left .h2{margin-bottom:18px;}
+.faq-left p{font-size:14px;line-height:1.85;color:var(--text-mid);margin-bottom:26px;}
+.faq-items{display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid var(--border-light);overflow:hidden;}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 0;text-align:left;gap:14px;}
+.faq-q-txt{font-family:'Oswald',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.03em;text-transform:uppercase;color:var(--black);transition:color 0.2s;}
+.faq-q:hover .faq-q-txt{color:var(--orange);}
+.faq-toggle{color:var(--orange);font-size:20px;line-height:1;transition:transform 0.3s;flex-shrink:0;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease;}
+.faq-item.open .faq-answer{max-height:300px;}
+.faq-answer-inner{padding:0 0 18px;font-size:14px;line-height:1.8;color:var(--text-light);}
 
-/* Hero wave */
-.hero-wave { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 3; }
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:56px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:44px;padding-bottom:44px;}
+.footer-brand-mark{display:flex;align-items:center;gap:10px;margin-bottom:16px;text-decoration:none;}
+.footer-logo-sq{width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:#fff;}
+.footer-brand-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#fff;letter-spacing:0.06em;text-transform:uppercase;}
+.footer-about{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.5);max-width:250px;margin-bottom:16px;}
+.footer-lic{font-size:11px;color:var(--orange);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.footer-col h4{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:16px;padding-bottom:6px;border-bottom:2px solid var(--orange);display:inline-block;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--orange);}
+.footer-contacts{display:flex;flex-direction:column;gap:12px;}
+.fc{display:flex;flex-direction:column;gap:1px;}
+.fc-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);}
+.fc-val{font-size:13px;color:rgba(255,255,255,0.5);}
+.fc-val a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
+.fc-val a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.3);}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{width:32px;height:32px;border:1.5px solid rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.footer-social a:hover{border-color:var(--orange);color:var(--orange);background:rgba(232,70,28,0.1);}
+.footer-social svg{width:15px;height:15px;fill:currentColor;}
 
-/* ══════════════════════
-   MARQUEE
-══════════════════════ */
-.ticker {
-  background: var(--orange); padding: 11px 0; overflow: hidden;
-  position: relative; z-index: 4;
-}
-.ticker-track {
-  display: flex; animation: tick 24s linear infinite;
-  white-space: nowrap; width: max-content;
-}
-.ticker-item {
-  font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase; color: #fff;
-  padding: 0 28px; display: flex; align-items: center; gap: 14px;
-}
-.ticker-item::after { content: '✦'; font-size: 9px; opacity: 0.7; }
-@keyframes tick { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-
-/* ══════════════════════
-   HELPERS
-══════════════════════ */
-.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-.eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--orange);
-  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
-}
-.eyebrow::before { content:''; width:20px; height:2px; background:var(--orange); flex-shrink:0; }
-.eyebrow.light { color: rgba(255,255,255,0.6); }
-.eyebrow.light::before { background: var(--orange); }
-.h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(34px, 4vw, 58px);
-  font-weight: 700; line-height: 0.97; letter-spacing: -0.01em;
-  text-transform: uppercase; color: var(--black);
-}
-.h2.light { color: #fff; }
-.divider { height: 4px; background: linear-gradient(90deg, var(--orange), #ff8a6e, var(--orange-dark)); }
-
-/* ══════════════════════
-   ABOUT / INTRO
-══════════════════════ */
-#about { padding: 88px 0; background: var(--off-white); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.about-left .h2 { margin-bottom: 22px; }
-.about-left p { font-size: 15px; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
-.about-left p strong { color: var(--black); font-weight: 600; }
-.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-.tag {
-  background: var(--warm-gray); border: 1px solid var(--border);
-  color: var(--text-mid); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  padding: 5px 13px; border-radius: var(--rpill);
-}
-.about-right { position: relative; }
-.about-img-stack { position: relative; height: 480px; }
-.about-img-main {
-  position: absolute; top: 0; right: 0; width: 82%; height: 340px;
-  object-fit: cover; border-radius: var(--rlg); box-shadow: var(--shadow-lg);
-}
-.about-img-sub {
-  position: absolute; bottom: 0; left: 0; width: 54%; height: 230px;
-  object-fit: cover; border-radius: var(--r);
-  box-shadow: var(--shadow); border: 4px solid var(--off-white);
-}
-.about-stat-box {
-  position: absolute; bottom: 50px; right: -8px;
-  background: var(--orange); color: #fff; border-radius: var(--r);
-  padding: 16px 20px; text-align: center; box-shadow: 0 8px 28px rgba(232,70,28,0.4);
-}
-.about-stat-num { font-family: 'Oswald', sans-serif; font-size: 38px; font-weight: 700; line-height: 1; display: block; }
-.about-stat-txt { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; margin-top: 3px; }
-
-/* ══════════════════════
-   SERVICES
-══════════════════════ */
-#services { padding: 88px 0; background: var(--black); }
-.services-header { margin-bottom: 52px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
-.services-header .h2 { color: #fff; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.service-card {
-  background: var(--black-soft); padding: 40px 32px;
-  position: relative; overflow: hidden;
-  transition: background 0.3s;
-  border-radius: 0;
-}
-.service-card:first-child { border-radius: var(--rlg) 0 0 var(--rlg); }
-.service-card:last-child { border-radius: 0 var(--rlg) var(--rlg) 0; }
-.service-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--orange); transform: scaleX(0); transform-origin: left;
-  transition: transform 0.4s ease;
-}
-.service-card:hover { background: var(--black-mid); }
-.service-card:hover::before { transform: scaleX(1); }
-.service-n {
-  font-family: 'Oswald', sans-serif; font-size: 64px; font-weight: 700;
-  color: rgba(255,255,255,0.04); line-height: 1;
-  position: absolute; top: 16px; right: 20px;
-}
-.service-icon-wrap {
-  width: 52px; height: 52px; background: rgba(232,70,28,0.12);
-  border: 1px solid rgba(232,70,28,0.25); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; margin-bottom: 20px;
-}
-.service-name {
-  font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 600;
-  letter-spacing: 0.03em; text-transform: uppercase; color: #fff; margin-bottom: 12px;
-}
-.service-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.55); }
-.service-detail {
-  margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
-  display: flex; flex-direction: column; gap: 6px;
-}
-.service-detail-item {
-  font-size: 12px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 7px;
-}
-.service-detail-item::before { content:'→'; color:var(--orange); font-size:11px; }
-
-/* ══════════════════════
-   WHY ALTA
-══════════════════════ */
-#why { padding: 88px 0; background: var(--off-white); }
-.why-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
-.why-left .h2 { margin-bottom: 22px; }
-.why-left p { font-size: 15px; line-height: 1.85; color: var(--text-mid); margin-bottom: 20px; }
-.warranty-box {
-  background: var(--black); color: #fff;
-  padding: 26px; border-radius: var(--r); margin-top: 24px;
-  position: relative; overflow: hidden;
-  box-shadow: 0 8px 28px rgba(26,26,26,0.2);
-}
-.warranty-box::before {
-  content: '3YR'; position: absolute; right: 16px; top: 8px;
-  font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700;
-  color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none;
-}
-.warranty-box h3 {
-  font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
-  letter-spacing: 0.05em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
-}
-.warranty-box p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.72); }
-.why-items { display: flex; flex-direction: column; }
-.why-item {
-  display: grid; grid-template-columns: 50px 1fr; gap: 18px;
-  padding: 20px 0; border-bottom: 1px solid var(--border-light); align-items: start;
-}
-.why-item:first-child { border-top: 1px solid var(--border-light); }
-.why-icon {
-  width: 50px; height: 50px; background: var(--warm-gray);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.why-content h4 {
-  font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase; color: var(--black); margin-bottom: 4px;
-}
-.why-content p { font-size: 13px; line-height: 1.7; color: var(--text-light); }
-
-/* ══════════════════════
-   PROCESS
-══════════════════════ */
-#process { padding: 88px 0; background: var(--warm-gray); }
-.process-header { margin-bottom: 56px; }
-.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-.process-steps::before {
-  content: ''; position: absolute; top: 32px; left: 8%; right: 8%;
-  height: 2px; background: linear-gradient(90deg, var(--orange), rgba(232,70,28,0.2));
-  z-index: 0;
-}
-.process-step { position: relative; z-index: 1; padding: 0 20px; text-align: center; }
-.step-circle {
-  width: 64px; height: 64px; background: var(--off-white);
-  border: 3px solid var(--orange); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 14px rgba(232,70,28,0.2);
-  transition: background 0.3s, border-color 0.3s;
-}
-.process-step:hover .step-circle { background: var(--orange); }
-.step-num {
-  font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700;
-  color: var(--orange); transition: color 0.3s;
-}
-.process-step:hover .step-num { color: #fff; }
-.step-title {
-  font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600;
-  letter-spacing: 0.05em; text-transform: uppercase; color: var(--black); margin-bottom: 8px;
-}
-.step-desc { font-size: 13px; line-height: 1.65; color: var(--text-light); }
-
-/* ══════════════════════
-   REVIEWS
-══════════════════════ */
-#reviews { padding: 88px 0; background: var(--black); }
-.reviews-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; flex-wrap: wrap; gap: 20px; }
-.reviews-header .h2 { color: #fff; }
-.rating-pill {
-  display: flex; align-items: center; gap: 10px;
-  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 18px; border-radius: var(--rpill);
-}
-.rating-stars { color: var(--orange); font-size: 15px; letter-spacing: 2px; }
-.rating-score { font-family: 'Oswald', sans-serif; font-size: 24px; color: #fff; line-height: 1; }
-.rating-label { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 500; }
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.review-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--r); padding: 26px;
-  transition: background 0.3s;
-}
-.review-card:hover { background: rgba(255,255,255,0.08); }
-.review-card.feat { background: rgba(232,70,28,0.1); border-color: rgba(232,70,28,0.25); }
-.review-stars { color: var(--orange); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
-.review-text { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.78); font-style: italic; margin-bottom: 18px; }
-.review-author { display: flex; align-items: center; gap: 10px; }
-.review-av {
-  width: 32px; height: 32px; background: var(--orange); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; color: #fff; font-family: 'Oswald', sans-serif;
-  flex-shrink: 0;
-}
-.review-name { font-size: 13px; font-weight: 600; color: #fff; }
-.review-meta { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 1px; }
-
-/* ══════════════════════
-   AREAS
-══════════════════════ */
-#areas { padding: 80px 0; background: var(--off-white); }
-.areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.areas-left .h2 { margin-bottom: 18px; }
-.areas-left p { font-size: 15px; line-height: 1.8; color: var(--text-mid); margin-bottom: 26px; }
-.areas-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.area-item {
-  padding: 10px 0; border-bottom: 1px solid var(--border-light);
-  font-size: 14px; font-weight: 500; color: var(--text-mid);
-  display: flex; align-items: center; gap: 8px;
-}
-.area-item::before { content: '→'; color: var(--orange); font-size: 12px; }
-.areas-map {
-  position: relative; height: 380px; border-radius: var(--rlg);
-  overflow: hidden; box-shadow: var(--shadow-lg);
-  background: var(--black);
-}
-.areas-map-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(232,70,28,0.85) 0%, rgba(26,26,26,0.7) 100%);
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; text-align: center; padding: 36px;
-}
-.areas-map-overlay h3 {
-  font-family: 'Oswald', sans-serif; font-size: 40px; font-weight: 700;
-  text-transform: uppercase; color: #fff; line-height: 1; margin-bottom: 8px;
-}
-.areas-map-overlay p { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 0.06em; }
-
-/* ══════════════════════
-   GALLERY
-══════════════════════ */
-.gallery-strip { display: grid; grid-template-columns: repeat(4, 1fr); height: 200px; gap: 4px; overflow: hidden; }
-.gallery-strip div {
-  background: var(--warm-gray); overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
-.gallery-strip div:nth-child(1) { background: linear-gradient(135deg, #2a2a2a, #1a1a1a); }
-.gallery-strip div:nth-child(2) { background: linear-gradient(135deg, #e8461c, #c73a16); }
-.gallery-strip div:nth-child(3) { background: linear-gradient(135deg, #3a3a3a, #2a2a2a); }
-.gallery-strip div:nth-child(4) { background: linear-gradient(135deg, #ff6040, #e8461c); }
-.gallery-strip div span {
-  font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4);
-}
-
-/* ══════════════════════
-   CTA
-══════════════════════ */
-#cta { padding: 96px 0; background: var(--orange); position: relative; overflow: hidden; }
-.cta-bg {
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.cta-inner {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center;
-}
-.cta-inner h2 {
-  font-family: 'Oswald', sans-serif; font-size: clamp(36px, 4.5vw, 64px);
-  font-weight: 700; line-height: 0.95; text-transform: uppercase; color: #fff;
-  margin-bottom: 14px;
-}
-.cta-inner p { font-size: 17px; color: rgba(255,255,255,0.82); line-height: 1.6; max-width: 480px; margin-bottom: 28px; }
-.cta-box { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; min-width: 220px; }
-.cta-phone-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
-.cta-phone {
-  font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700;
-  color: #fff; text-decoration: none; line-height: 1; letter-spacing: 0.02em;
-  transition: opacity 0.2s;
-}
-.cta-phone:hover { opacity: 0.85; }
-.cta-email { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
-.cta-email:hover { color: #fff; }
-
-/* ══════════════════════
-   FAQ
-══════════════════════ */
-#faq { padding: 88px 0; background: var(--off-white); }
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
-.faq-left .h2 { margin-bottom: 18px; }
-.faq-left p { font-size: 14px; line-height: 1.85; color: var(--text-mid); margin-bottom: 26px; }
-.faq-items { display: flex; flex-direction: column; }
-.faq-item { border-bottom: 1px solid var(--border-light); overflow: hidden; }
-.faq-q {
-  width: 100%; background: none; border: none; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 0; text-align: left; gap: 14px;
-}
-.faq-q-txt {
-  font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 500;
-  letter-spacing: 0.03em; text-transform: uppercase; color: var(--black); transition: color 0.2s;
-}
-.faq-q:hover .faq-q-txt { color: var(--orange); }
-.faq-toggle { color: var(--orange); font-size: 20px; line-height: 1; transition: transform 0.3s; flex-shrink: 0; }
-.faq-item.open .faq-toggle { transform: rotate(45deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-.faq-item.open .faq-answer { max-height: 300px; }
-.faq-answer-inner { padding: 0 0 18px; font-size: 14px; line-height: 1.8; color: var(--text-light); }
-
-/* ══════════════════════
-   FOOTER
-══════════════════════ */
-footer {
-  background: var(--black);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 56px 0 0;
-}
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 44px; padding-bottom: 44px; }
-.footer-brand-mark { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; text-decoration: none; }
-.footer-logo-sq {
-  width: 36px; height: 36px; background: var(--orange); border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 700; color: #fff;
-}
-.footer-brand-name {
-  font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600;
-  color: #fff; letter-spacing: 0.06em; text-transform: uppercase;
-}
-.footer-about { font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 250px; margin-bottom: 16px; }
-.footer-lic { font-size: 11px; color: var(--orange); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-.footer-col h4 {
-  font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
-  margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid var(--orange); display: inline-block;
-}
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--orange); }
-.footer-contacts { display: flex; flex-direction: column; gap: 12px; }
-.fc { display: flex; flex-direction: column; gap: 1px; }
-.fc-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); }
-.fc-val { font-size: 13px; color: rgba(255,255,255,0.5); }
-.fc-val a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-.fc-val a:hover { color: #fff; }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 18px 0;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
-}
-.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
-.footer-social { display: flex; gap: 10px; }
-.footer-social a {
-  width: 32px; height: 32px; border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.footer-social a:hover { border-color: var(--orange); color: var(--orange); background: rgba(232,70,28,0.1); }
-.footer-social svg { width: 15px; height: 15px; fill: currentColor; }
-
-/* ══════════════════════
-   REVEAL
-══════════════════════ */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
 .rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}.rd4{transition-delay:.4s;}
 
-/* ══════════════════════
-   RESPONSIVE
-══════════════════════ */
-@media (max-width: 900px) {
-  .nav-links, .nav-phone { display: none; }
-  .nav-right .btn-orange { display: none; }
-  .nav-burger { display: flex; }
-
-  .hero-content { grid-template-columns: 1fr; gap: 0; padding: 90px 20px 72px; }
-  .hero-right { display: none; }
-  .hero-trust { gap: 16px; }
-
-  .about-grid, .why-grid, .areas-grid, .cta-inner, .faq-grid { grid-template-columns: 1fr; gap: 44px; }
-  .about-right { display: none; }
-  .services-grid { grid-template-columns: 1fr; gap: 2px; }
-  .service-card:first-child { border-radius: var(--rlg) var(--rlg) 0 0; }
-  .service-card:last-child { border-radius: 0 0 var(--rlg) var(--rlg); }
-  .process-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .process-steps::before { display: none; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .areas-list { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .gallery-strip { height: 130px; }
-  .cta-box { align-items: flex-start; text-align: left; }
-  .container { padding: 0 18px; }
-  .services-header { flex-direction: column; align-items: flex-start; }
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-phone{display:none;}
+  .nav-right .btn-orange{display:none;}
+  .nav-burger{display:flex;}
+  .hero-content{grid-template-columns:1fr;gap:0;padding:90px 20px 72px;}
+  .hero-right{display:none;}
+  .about-grid,.why-grid,.areas-grid,.cta-inner,.faq-grid{grid-template-columns:1fr;gap:44px;}
+  .about-right{display:none;}
+  .services-grid{grid-template-columns:1fr;gap:2px;}
+  .service-card:first-child{border-radius:var(--rlg) var(--rlg) 0 0;}
+  .service-card:last-child{border-radius:0 0 var(--rlg) var(--rlg);}
+  .process-steps{grid-template-columns:1fr 1fr;gap:28px;}
+  .process-steps::before{display:none;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .areas-list{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .gallery-strip{height:160px;}
+  .services-header{flex-direction:column;align-items:flex-start;}
+  .form-row-2{grid-template-columns:1fr;}
+  .quote-form-wrap{padding:28px 20px;}
 }
-
-@media (max-width: 540px) {
-  .hero-content { padding: 80px 16px 60px; }
-  .hero-h1 { font-size: clamp(44px, 13vw, 64px); }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions a { text-align: center; }
-  .process-steps { grid-template-columns: 1fr; }
-  .areas-list { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .gallery-strip { grid-template-columns: repeat(2, 1fr); height: 180px; }
-  #about,#services,#why,#process,#reviews,#areas,#cta,#faq { padding: 60px 0; }
-  .container { padding: 0 16px; }
-  .h2 { font-size: clamp(30px, 9vw, 44px); }
+@media(max-width:540px){
+  .hero-h1{font-size:clamp(44px,13vw,64px);}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .hero-actions a{text-align:center;}
+  .process-steps{grid-template-columns:1fr;}
+  .areas-list{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .gallery-strip{grid-template-columns:repeat(2,1fr);height:200px;}
+  #about,#services,#why,#process,#reviews,#areas,#cta,#faq{padding:60px 0;}
+  .h2{font-size:clamp(30px,9vw,44px);}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">AE</div>
-      <div>
-        <div class="nav-logo-text">Alta Exteriors</div>
-        <div class="nav-logo-sub">LLC</div>
-      </div>
+      <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" class="nav-logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -722,52 +359,44 @@ footer {
   </div>
 </nav>
 
-<!-- Mobile Drawer -->
+<!-- MOBILE DRAWER -->
 <div class="nav-drawer" id="drawer">
-  <a href="#services"  onclick="closeDrawer()">Services</a>
-  <a href="#why"       onclick="closeDrawer()">Why Alta</a>
-  <a href="#process"   onclick="closeDrawer()">Our Process</a>
-  <a href="#reviews"   onclick="closeDrawer()">Reviews</a>
-  <a href="#areas"     onclick="closeDrawer()">Service Areas</a>
-  <a href="#faq"       onclick="closeDrawer()">FAQ</a>
+  <img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" style="height:52px;width:auto;object-fit:contain;margin-bottom:12px;opacity:0.92;" />
+  <a href="#services" onclick="closeDrawer()">Services</a>
+  <a href="#why" onclick="closeDrawer()">Why Alta</a>
+  <a href="#process" onclick="closeDrawer()">Our Process</a>
+  <a href="#reviews" onclick="closeDrawer()">Reviews</a>
+  <a href="#areas" onclick="closeDrawer()">Service Areas</a>
+  <a href="#faq" onclick="closeDrawer()">FAQ</a>
   <div class="drawer-cta">
     <a href="tel:+14256862337" class="dcta-orange" onclick="closeDrawer()">📞 (425) 686-2337</a>
     <a href="#cta" class="dcta-outline" onclick="closeDrawer()">Get a Free Quote</a>
   </div>
 </div>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-texture"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-eyebrow">Snohomish County's Trusted Painters</div>
-      <h1 class="hero-h1">
-        PAINT IT<br>
-        <span class="accent">RIGHT.</span><br>
-        <span class="stroke">GUARANTEED.</span>
-      </h1>
+      <h1 class="hero-h1">PAINT IT<br><span class="accent">RIGHT.</span><br><span class="stroke">GUARANTEED.</span></h1>
       <p class="hero-sub">Family-owned painting contractor serving Snohomish County and surrounding areas. Exterior, interior, and cabinet refinishing — done clean, done right, backed by a 3-year warranty.</p>
       <div class="hero-actions">
         <a href="#cta" class="btn-orange btn-orange-lg">Get a Free Quote</a>
         <a href="tel:+14256862337" class="btn-outline-white">📞 (425) 686-2337</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><div class="trust-dot">🛡️</div><span class="trust-txt">Licensed & Insured</span></div>
+        <div class="trust-item"><div class="trust-dot">🛡️</div><span class="trust-txt">Licensed &amp; Insured</span></div>
         <div class="trust-item"><div class="trust-dot">✅</div><span class="trust-txt">3-Year Warranty</span></div>
         <div class="trust-item"><div class="trust-dot">👨‍👩‍👦</div><span class="trust-txt">Family Owned</span></div>
         <div class="trust-item"><div class="trust-dot">⭐</div><span class="trust-txt">Free Estimates</span></div>
       </div>
     </div>
     <div class="hero-right">
-      <!-- Placeholder image blocks since no photos uploaded yet -->
-      <div class="hero-img-main" style="background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;border-radius:20px;">
-        <span style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.15);">Exterior Painting</span>
-      </div>
-      <div class="hero-img-accent" style="background:linear-gradient(135deg,#e8461c 0%,#c73a16 100%);display:flex;align-items:center;justify-content:center;border-radius:12px;">
-        <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Cabinets</span>
-      </div>
+      <img class="hero-img-main" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting — Alta Exteriors LLC" />
+      <img class="hero-img-accent" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing — Alta Exteriors LLC" />
       <div class="hero-badge">
         <span class="hero-badge-num">3YR</span>
         <div class="hero-badge-txt">Warranty</div>
@@ -781,29 +410,14 @@ footer {
   </div>
 </section>
 
-<!-- ══ TICKER ══ -->
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="ticker-item">Exterior Painting</div>
-    <div class="ticker-item">Interior Painting</div>
-    <div class="ticker-item">Cabinet Refinishing</div>
-    <div class="ticker-item">3-Year Warranty</div>
-    <div class="ticker-item">Free Estimates</div>
-    <div class="ticker-item">Licensed & Insured</div>
-    <div class="ticker-item">Family Owned</div>
-    <div class="ticker-item">Snohomish County</div>
-    <div class="ticker-item">Exterior Painting</div>
-    <div class="ticker-item">Interior Painting</div>
-    <div class="ticker-item">Cabinet Refinishing</div>
-    <div class="ticker-item">3-Year Warranty</div>
-    <div class="ticker-item">Free Estimates</div>
-    <div class="ticker-item">Licensed & Insured</div>
-    <div class="ticker-item">Family Owned</div>
-    <div class="ticker-item">Snohomish County</div>
+    <div class="ticker-item">Exterior Painting</div><div class="ticker-item">Interior Painting</div><div class="ticker-item">Cabinet Refinishing</div><div class="ticker-item">3-Year Warranty</div><div class="ticker-item">Free Estimates</div><div class="ticker-item">Licensed &amp; Insured</div><div class="ticker-item">Family Owned</div><div class="ticker-item">Snohomish County</div><div class="ticker-item">Exterior Painting</div><div class="ticker-item">Interior Painting</div><div class="ticker-item">Cabinet Refinishing</div><div class="ticker-item">3-Year Warranty</div><div class="ticker-item">Free Estimates</div><div class="ticker-item">Licensed &amp; Insured</div><div class="ticker-item">Family Owned</div><div class="ticker-item">Snohomish County</div>
   </div>
 </div>
 
-<!-- ══ ABOUT ══ -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -814,11 +428,7 @@ footer {
         <p>We're a family-owned operation. That means you get real communication, real accountability, and a <strong>3-year workmanship warranty</strong> that we actually honor. No chasing us down afterward.</p>
         <p>We do exterior painting, interior painting, and kitchen cabinet refinishing — and we do all three at a professional level.</p>
         <div class="about-tags">
-          <span class="tag">Family Owned</span>
-          <span class="tag">Licensed & Insured</span>
-          <span class="tag">3-Year Warranty</span>
-          <span class="tag">Free Estimates</span>
-          <span class="tag">Snohomish Co.</span>
+          <span class="tag">Family Owned</span><span class="tag">Licensed &amp; Insured</span><span class="tag">3-Year Warranty</span><span class="tag">Free Estimates</span><span class="tag">Snohomish Co.</span>
         </div>
         <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
           <a href="#cta" class="btn-orange">Get a Free Quote</a>
@@ -827,12 +437,8 @@ footer {
       </div>
       <div class="about-right reveal rd2">
         <div class="about-img-stack">
-          <div class="about-img-main" style="background:linear-gradient(135deg,#2a2a2a,#1a1a1a);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:'Oswald',sans-serif;font-size:16px;color:rgba(255,255,255,0.12);letter-spacing:0.1em;text-transform:uppercase;">Your Photo Here</span>
-          </div>
-          <div class="about-img-sub" style="background:linear-gradient(135deg,#3a3a3a,#2a2a2a);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:'Oswald',sans-serif;font-size:13px;color:rgba(255,255,255,0.15);letter-spacing:0.08em;text-transform:uppercase;">Photo</span>
-          </div>
+          <img class="about-img-main" src="https://github.com/user-attachments/assets/83036853-f4c1-4321-a43e-e61255200819" alt="Alta Exteriors painter at work" />
+          <img class="about-img-sub" src="https://github.com/user-attachments/assets/19cea454-0e75-42d5-86bf-b762dedcb30a" alt="Interior painting — Alta Exteriors" />
           <div class="about-stat-box">
             <span class="about-stat-num">100%</span>
             <div class="about-stat-txt">Satisfaction</div>
@@ -845,7 +451,7 @@ footer {
 
 <div class="divider"></div>
 
-<!-- ══ SERVICES ══ -->
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="services-header reveal">
@@ -853,50 +459,59 @@ footer {
         <div class="eyebrow light">What We Do</div>
         <h2 class="h2 light">THREE SERVICES.<br>ALL DONE RIGHT.</h2>
       </div>
-      <a href="#cta" class="btn-orange reveal">Get a Free Quote →</a>
+      <a href="#cta" class="btn-orange">Get a Free Quote →</a>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
+        <img class="service-photo" src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting services" />
         <div class="service-n">01</div>
-        <div class="service-icon-wrap">🏠</div>
-        <div class="service-name">Exterior Painting</div>
-        <p class="service-desc">Your home's exterior is the first thing everyone sees. We prep thoroughly, use premium paints rated for Pacific Northwest weather, and leave it looking sharp for years.</p>
-        <div class="service-detail">
-          <div class="service-detail-item">Full surface prep & repair</div>
-          <div class="service-detail-item">Pressure washing included</div>
-          <div class="service-detail-item">Premium weather-rated paints</div>
-          <div class="service-detail-item">Trim, soffits, doors</div>
+        <div class="service-body">
+          <div class="service-icon-wrap">🏠</div>
+          <div class="service-name">Exterior Painting</div>
+          <p class="service-desc">Your home's exterior is the first thing everyone sees. We prep thoroughly, use premium paints rated for Pacific Northwest weather, and leave it looking sharp for years.</p>
+          <div class="service-detail">
+            <div class="service-detail-item">Full surface prep &amp; repair</div>
+            <div class="service-detail-item">Pressure washing included</div>
+            <div class="service-detail-item">Premium weather-rated paints</div>
+            <div class="service-detail-item">Trim, soffits, doors</div>
+          </div>
         </div>
       </div>
       <div class="service-card reveal rd1">
+        <img class="service-photo" src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior painting services" />
         <div class="service-n">02</div>
-        <div class="service-icon-wrap">🖌️</div>
-        <div class="service-name">Interior Painting</div>
-        <p class="service-desc">We protect your furniture, prep your walls, and deliver a clean, consistent finish in any room. Walls, ceilings, trim — we handle it all without the mess.</p>
-        <div class="service-detail">
-          <div class="service-detail-item">Full furniture & floor protection</div>
-          <div class="service-detail-item">Wall patching & prep included</div>
-          <div class="service-detail-item">Walls, ceilings, trim, doors</div>
-          <div class="service-detail-item">Any room, any size</div>
+        <div class="service-body">
+          <div class="service-icon-wrap">🖌️</div>
+          <div class="service-name">Interior Painting</div>
+          <p class="service-desc">We protect your furniture, prep your walls, and deliver a clean, consistent finish in any room. Walls, ceilings, trim — we handle it all without the mess.</p>
+          <div class="service-detail">
+            <div class="service-detail-item">Full furniture &amp; floor protection</div>
+            <div class="service-detail-item">Wall patching &amp; prep included</div>
+            <div class="service-detail-item">Walls, ceilings, trim, doors</div>
+            <div class="service-detail-item">Any room, any size</div>
+          </div>
         </div>
       </div>
       <div class="service-card reveal rd2">
+        <img class="service-photo" src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing services" />
         <div class="service-n">03</div>
-        <div class="service-icon-wrap">🪵</div>
-        <div class="service-name">Cabinet Refinishing</div>
-        <p class="service-desc">A full cabinet replacement costs $15,000+. We refinish your kitchen cabinets to a factory-smooth finish for a fraction of the cost — new look, zero demolition.</p>
-        <div class="service-detail">
-          <div class="service-detail-item">Degreasing & thorough prep</div>
-          <div class="service-detail-item">Spray-applied smooth finish</div>
-          <div class="service-detail-item">Any color, any style</div>
-          <div class="service-detail-item">Done in days, not weeks</div>
+        <div class="service-body">
+          <div class="service-icon-wrap">🪵</div>
+          <div class="service-name">Cabinet Refinishing</div>
+          <p class="service-desc">A full cabinet replacement costs $15,000+. We refinish your kitchen cabinets to a factory-smooth finish for a fraction of the cost — new look, zero demolition.</p>
+          <div class="service-detail">
+            <div class="service-detail-item">Degreasing &amp; thorough prep</div>
+            <div class="service-detail-item">Spray-applied smooth finish</div>
+            <div class="service-detail-item">Any color, any style</div>
+            <div class="service-detail-item">Done in days, not weeks</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ WHY ALTA ══ -->
+<!-- WHY -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
@@ -912,7 +527,7 @@ footer {
       </div>
       <div class="reveal rd1">
         <div class="why-items">
-          <div class="why-item"><div class="why-icon">🛡️</div><div class="why-content"><h4>Licensed & Insured</h4><p>We're a fully licensed and insured painting contractor. You're protected from day one.</p></div></div>
+          <div class="why-item"><div class="why-icon">🛡️</div><div class="why-content"><h4>Licensed &amp; Insured</h4><p>We're a fully licensed and insured painting contractor. You're protected from day one.</p></div></div>
           <div class="why-item"><div class="why-icon">🧹</div><div class="why-content"><h4>Prep Is Everything</h4><p>We spend more time on prep than most painters spend on the whole job. It's why our work lasts.</p></div></div>
           <div class="why-item"><div class="why-icon">👨‍👩‍👦</div><div class="why-content"><h4>Family Owned</h4><p>Not a franchise. Not a random crew. Juan and the team are the people who show up and do the work.</p></div></div>
           <div class="why-item"><div class="why-icon">💬</div><div class="why-content"><h4>Real Communication</h4><p>We answer calls. We give you accurate timelines. We tell you what we find before we start fixing it.</p></div></div>
@@ -923,7 +538,7 @@ footer {
   </div>
 </section>
 
-<!-- ══ PROCESS ══ -->
+<!-- PROCESS -->
 <section id="process">
   <div class="container">
     <div class="process-header reveal">
@@ -931,45 +546,20 @@ footer {
       <h2 class="h2">FROM CALL TO CLEAN FINISH</h2>
     </div>
     <div class="process-steps">
-      <div class="process-step reveal">
-        <div class="step-circle"><div class="step-num">01</div></div>
-        <div class="step-title">Call or Submit</div>
-        <p class="step-desc">Call or fill out the form. We respond the same day.</p>
-      </div>
-      <div class="process-step reveal rd1">
-        <div class="step-circle"><div class="step-num">02</div></div>
-        <div class="step-title">Free Quote</div>
-        <p class="step-desc">We come out, assess, and give you a written quote. No pressure.</p>
-      </div>
-      <div class="process-step reveal rd2">
-        <div class="step-circle"><div class="step-num">03</div></div>
-        <div class="step-title">We Paint</div>
-        <p class="step-desc">Prep, prime, paint. Done on schedule, done clean.</p>
-      </div>
-      <div class="process-step reveal rd3">
-        <div class="step-circle"><div class="step-num">04</div></div>
-        <div class="step-title">You're Covered</div>
-        <p class="step-desc">Walk-through, sign-off, and your 3-year warranty starts.</p>
-      </div>
+      <div class="process-step reveal"><div class="step-circle"><div class="step-num">01</div></div><div class="step-title">Call or Submit</div><p class="step-desc">Call or fill out the form. We respond the same day.</p></div>
+      <div class="process-step reveal rd1"><div class="step-circle"><div class="step-num">02</div></div><div class="step-title">Free Quote</div><p class="step-desc">We come out, assess, and give you a written quote. No pressure.</p></div>
+      <div class="process-step reveal rd2"><div class="step-circle"><div class="step-num">03</div></div><div class="step-title">We Paint</div><p class="step-desc">Prep, prime, paint. Done on schedule, done clean.</p></div>
+      <div class="process-step reveal rd3"><div class="step-circle"><div class="step-num">04</div></div><div class="step-title">You're Covered</div><p class="step-desc">Walk-through, sign-off, and your 3-year warranty starts.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ REVIEWS ══ -->
+<!-- REVIEWS -->
 <section id="reviews">
   <div class="container">
     <div class="reviews-header reveal">
-      <div>
-        <div class="eyebrow light">Client Reviews</div>
-        <h2 class="h2 light">WHAT HOMEOWNERS SAY.</h2>
-      </div>
-      <div class="rating-pill">
-        <div>
-          <div class="rating-stars">★★★★★</div>
-          <div class="rating-label">Google Reviews</div>
-        </div>
-        <div class="rating-score">5.0</div>
-      </div>
+      <div><div class="eyebrow light">Client Reviews</div><h2 class="h2 light">WHAT HOMEOWNERS SAY.</h2></div>
+      <div class="rating-pill"><div><div class="rating-stars">★★★★★</div><div class="rating-label">Google Reviews</div></div><div class="rating-score">5.0</div></div>
     </div>
     <div class="reviews-grid">
       <div class="review-card feat reveal">
@@ -980,7 +570,7 @@ footer {
       <div class="review-card reveal rd1">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"We had our kitchen cabinets refinished and the result is stunning. Saved us thousands over a full replacement. The finish is smooth, the color is perfect, and they cleaned up spotlessly."</p>
-        <div class="review-author"><div class="review-av">D</div><div><div class="review-name">David & Sarah K.</div><div class="review-meta">Snohomish, WA — Cabinet Refinishing</div></div></div>
+        <div class="review-author"><div class="review-av">D</div><div><div class="review-name">David &amp; Sarah K.</div><div class="review-meta">Snohomish, WA — Cabinet Refinishing</div></div></div>
       </div>
       <div class="review-card reveal rd2">
         <div class="review-stars">★★★★★</div>
@@ -991,7 +581,7 @@ footer {
   </div>
 </section>
 
-<!-- ══ AREAS ══ -->
+<!-- AREAS -->
 <section id="areas">
   <div class="container">
     <div class="areas-grid">
@@ -1000,65 +590,85 @@ footer {
         <h2 class="h2">SERVICE AREAS</h2>
         <p>We serve Snohomish County and surrounding communities. Not sure if we cover your area? Call us — we'll let you know.</p>
         <div class="areas-list">
-          <div class="area-item">Monroe</div>
-          <div class="area-item">Snohomish</div>
-          <div class="area-item">Everett</div>
-          <div class="area-item">Marysville</div>
-          <div class="area-item">Arlington</div>
-          <div class="area-item">Mill Creek</div>
-          <div class="area-item">Bothell</div>
-          <div class="area-item">Lynnwood</div>
-          <div class="area-item">Edmonds</div>
-          <div class="area-item">Shoreline</div>
-          <div class="area-item">Duvall</div>
-          <div class="area-item">Issaquah</div>
-          <div class="area-item">Kent</div>
-          <div class="area-item">Seattle</div>
+          <div class="area-item">Monroe</div><div class="area-item">Snohomish</div><div class="area-item">Everett</div><div class="area-item">Marysville</div><div class="area-item">Arlington</div><div class="area-item">Mill Creek</div><div class="area-item">Bothell</div><div class="area-item">Lynnwood</div><div class="area-item">Edmonds</div><div class="area-item">Shoreline</div><div class="area-item">Duvall</div><div class="area-item">Issaquah</div><div class="area-item">Kent</div><div class="area-item">Seattle</div>
         </div>
         <div style="margin-top:22px;"><a href="#cta" class="btn-orange">Not on the list? Call us.</a></div>
       </div>
       <div class="areas-map reveal rd2">
+        <img src="https://github.com/user-attachments/assets/5e678024-62e4-4f30-9741-6b63d50662fb" alt="Seattle skyline — serving greater Seattle and Snohomish County" />
         <div class="areas-map-overlay">
           <h3>SNOHOMISH<br>COUNTY</h3>
-          <p>& Surrounding Areas — WA State</p>
+          <p>&amp; Surrounding Areas — WA State</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ GALLERY ══ -->
+<!-- GALLERY -->
 <div class="gallery-strip">
-  <div><span>Exterior</span></div>
-  <div><span>Interior</span></div>
-  <div><span>Cabinets</span></div>
-  <div><span>Trim Work</span></div>
+  <div><img src="https://github.com/user-attachments/assets/c58151d6-cb85-4e0f-be54-08ffe8d7bbc0" alt="Exterior painting" /><div class="gallery-strip-label">Exterior</div></div>
+  <div><img src="https://github.com/user-attachments/assets/a7b4f355-5697-47d7-96f0-f77fc9c13d22" alt="Interior painting" /><div class="gallery-strip-label">Interior</div></div>
+  <div><img src="https://github.com/user-attachments/assets/a5b4300b-2ecb-4e21-8fbb-daee2c628a24" alt="Cabinet refinishing" /><div class="gallery-strip-label">Cabinets</div></div>
+  <div><img src="https://github.com/user-attachments/assets/83036853-f4c1-4321-a43e-e61255200819" alt="Our crew" /><div class="gallery-strip-label">Our Crew</div></div>
 </div>
 
-<!-- ══ CTA ══ -->
+<!-- CONTACT / FORM -->
 <section id="cta">
   <div class="cta-bg"></div>
   <div class="container">
     <div class="cta-inner">
-      <div class="reveal">
+      <div class="cta-left reveal">
+        <div class="eyebrow light">Get Started</div>
         <h2>READY FOR A FRESH COAT?</h2>
         <p>Exterior, interior, or cabinets — we'll come out, look at the job, and give you a straight written quote. No pressure, no obligation, and yes, it's actually free.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="mailto:altaexteriorsllc@gmail.com" class="btn-dark btn-orange-lg" style="background:#1a1a1a;">Email Us</a>
-          <a href="https://www.altaexteriorswa.com/" target="_blank" class="btn-outline-white">Visit Our Website</a>
+        <div class="cta-contact-items">
+          <div class="cta-contact-row"><span class="cta-contact-icon">📞</span><div><div class="cta-contact-lbl">Call or Text</div><div class="cta-contact-val"><a href="tel:+14256862337">(425) 686-2337</a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-contact-icon">✉️</span><div><div class="cta-contact-lbl">Email Us</div><div class="cta-contact-val"><a href="/cdn-cgi/l/email-protection#4d2c21392c283539283f24223f3e21212e0d2a202c2421632e2220"><span class="__cf_email__" data-cfemail="5839342c393d202c3d2a31372a2b34343b183f35393134763b3735">[email&#160;protected]</span></a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-contact-icon">🌐</span><div><div class="cta-contact-lbl">Website</div><div class="cta-contact-val"><a href="https://www.altaexteriorswa.com/" target="_blank">altaexteriorswa.com</a></div></div></div>
+          <div class="cta-contact-row"><span class="cta-contact-icon">📍</span><div><div class="cta-contact-lbl">Service Area</div><div class="cta-contact-val">Snohomish Co. &amp; Greater Seattle</div></div></div>
         </div>
       </div>
-      <div class="cta-box reveal rd2">
-        <div class="cta-phone-lbl">Call or Text</div>
-        <a href="tel:+14256862337" class="cta-phone">(425) 686-2337</a>
-        <a href="mailto:altaexteriorsllc@gmail.com" class="cta-email">altaexteriorsllc@gmail.com</a>
-        <a href="#cta" class="btn-dark btn-orange-lg" style="background:#1a1a1a;margin-top:10px;width:100%;text-align:center;">Get a Free Quote</a>
+      <div class="reveal rd2">
+        <div class="quote-form-wrap">
+          <div class="form-heading">Request a Free Estimate</div>
+          <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="59edd30f-f5ac-41e1-b7fa-db07e579acda" />
+            <input type="hidden" name="subject" value="New Quote Request — Alta Exteriors LLC" />
+            <input type="hidden" name="from_name" value="Alta Exteriors Website" />
+            <input type="checkbox" name="botcheck" style="display:none;" />
+            <div class="form-row-2">
+              <div class="form-group"><label for="f-name">Name *</label><input type="text" id="f-name" name="name" placeholder="John Smith" required /></div>
+              <div class="form-group"><label for="f-email">Email *</label><input type="email" id="f-email" name="email" placeholder="john@email.com" required /></div>
+            </div>
+            <div class="form-group"><label for="f-phone">Phone</label><input type="tel" id="f-phone" name="phone" placeholder="(425) 000-0000" /></div>
+            <div class="form-group">
+              <label for="f-service">Service Needed</label>
+              <select id="f-service" name="service">
+                <option value="" disabled selected>Select a service...</option>
+                <option>Exterior Painting</option>
+                <option>Interior Painting</option>
+                <option>Cabinet Refinishing</option>
+                <option>Multiple Services</option>
+                <option>Not Sure — Need Estimate</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="f-msg">Project Details *</label><textarea id="f-msg" name="message" placeholder="Describe your project — property address, scope, timeline, or anything else that helps us give you an accurate quote..." required></textarea></div>
+            <div class="form-submit"><button type="submit" id="submitBtn">Request My Free Quote →</button></div>
+            <p class="form-note">No spam. No pressure. Just a free, honest estimate.</p>
+          </form>
+          <div id="successMsg">
+            <div class="s-icon">✅</div>
+            <div class="s-title">Request Sent!</div>
+            <p class="s-sub">We'll be in touch within one business day.<br>Talk soon — (425) 686-2337</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FAQ ══ -->
+<!-- FAQ -->
 <section id="faq">
   <div class="container">
     <div class="faq-grid">
@@ -1073,73 +683,44 @@ footer {
         </div>
       </div>
       <div class="faq-items reveal rd1">
-        <div class="faq-item open">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you offer free estimates?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Yes — always. We come out, assess the job, and give you a written quote at no charge. No obligation to book.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">What does the 3-year warranty cover?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Our warranty covers workmanship defects — peeling, cracking, bubbling, or adhesion failures. If it happens within 3 years, we come back and fix it at no cost.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Is cabinet refinishing worth it vs. replacement?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Almost always. Full cabinet replacement can cost $10,000–$25,000. Refinishing delivers a factory-smooth new finish for a fraction of that — and it's done in days, not weeks.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">How long does an exterior paint job take?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Most residential exteriors take 2–4 days depending on size and complexity. We give you a specific timeline when we come out for the estimate.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Are you licensed and insured?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Yes. Alta Exteriors LLC is fully licensed and insured in Washington State. We carry general liability coverage on every job.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you serve Seattle or King County?</span><span class="faq-toggle">+</span></button>
-          <div class="faq-answer"><div class="faq-answer-inner">Yes — we serve Seattle, Kent, Issaquah, and other King County cities in addition to our Snohomish County base. Call us if you're not sure whether we cover your area.</div></div>
-        </div>
+        <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you offer free estimates?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes — always. We come out, assess the job, and give you a written quote at no charge. No obligation to book.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">What does the 3-year warranty cover?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Our warranty covers workmanship defects — peeling, cracking, bubbling, or adhesion failures. If it happens within 3 years, we come back and fix it at no cost.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Is cabinet refinishing worth it vs. replacement?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Almost always. Full cabinet replacement can cost $10,000–$25,000. Refinishing delivers a factory-smooth new finish for a fraction of that — and it's done in days, not weeks.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">How long does an exterior paint job take?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Most residential exteriors take 2–4 days depending on size and complexity. We give you a specific timeline when we come out for the estimate.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Are you licensed and insured?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Alta Exteriors LLC is fully licensed and insured in Washington State. We carry general liability coverage on every job.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-txt">Do you serve Seattle or King County?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes — we serve Seattle, Kent, Issaquah, and other King County cities in addition to our Snohomish County base. Call us if you're not sure whether we cover your area.</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="#" class="footer-brand-mark">
-          <div class="footer-logo-sq">AE</div>
-          <div class="footer-brand-name">Alta Exteriors LLC</div>
-        </a>
+        <a href="#" class="footer-brand-mark"><img src="https://github.com/user-attachments/assets/486c0040-f8e3-4ce7-a7e4-5eb5bad87550" alt="Alta Exteriors LLC" class="footer-logo-img" /></a>
         <p class="footer-about">Family-owned painting contractor serving Snohomish County and surrounding areas. Licensed, insured, and backed by a 3-year warranty.</p>
-        <div class="footer-lic">Licensed & Insured — Washington State</div>
+        <div class="footer-lic">Licensed &amp; Insured — Washington State</div>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
-          <li><a href="#services">Exterior Painting</a></li>
-          <li><a href="#services">Interior Painting</a></li>
-          <li><a href="#services">Cabinet Refinishing</a></li>
-          <li><a href="#cta">Free Estimate</a></li>
+          <li><a href="#services">Exterior Painting</a></li><li><a href="#services">Interior Painting</a></li><li><a href="#services">Cabinet Refinishing</a></li><li><a href="#cta">Free Estimate</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul class="footer-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#why">Why Alta</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#process">Our Process</a></li>
-          <li><a href="#areas">Service Areas</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About Us</a></li><li><a href="#why">Why Alta</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#process">Our Process</a></li><li><a href="#areas">Service Areas</a></li><li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-contacts">
           <div class="fc"><span class="fc-lbl">Phone / Text</span><span class="fc-val"><a href="tel:+14256862337">(425) 686-2337</a></span></div>
-          <div class="fc"><span class="fc-lbl">Email</span><span class="fc-val"><a href="mailto:altaexteriorsllc@gmail.com">altaexteriorsllc@gmail.com</a></span></div>
-          <div class="fc"><span class="fc-lbl">Service Area</span><span class="fc-val">Snohomish Co. & King Co., WA</span></div>
+          <div class="fc"><span class="fc-lbl">Email</span><span class="fc-val"><a href="/cdn-cgi/l/email-protection#2c4d40584d495458495e45435e5f40404f6c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="5a3b362e3b3f222e3f28333528293636391a3d373b333674393537">[email&#160;protected]</span></a></span></div>
+          <div class="fc"><span class="fc-lbl">Service Area</span><span class="fc-val">Snohomish Co. &amp; King Co., WA</span></div>
           <div class="fc"><span class="fc-lbl">Website</span><span class="fc-val"><a href="https://www.altaexteriorswa.com/" target="_blank">altaexteriorswa.com</a></span></div>
         </div>
       </div>
@@ -1147,22 +728,15 @@ footer {
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Alta Exteriors LLC — All rights reserved</span>
       <div class="footer-social">
-        <a href="mailto:altaexteriorsllc@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-        <a href="tel:+14256862337" aria-label="Call">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        </a>
-        <a href="https://www.altaexteriorswa.com/" target="_blank" rel="noopener" aria-label="Website">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        </a>
+        <a href="/cdn-cgi/l/email-protection#debfb2aabfbba6aabbacb7b1acadb2b2bd9eb9b3bfb7b2f0bdb1b3" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="tel:+14256862337" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+        <a href="https://www.altaexteriorswa.com/" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>
-  /* Hamburger */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('drawer');
   hamburger.addEventListener('click', () => {
@@ -1176,14 +750,12 @@ footer {
     document.body.style.overflow = '';
   }
 
-  /* Scroll reveal */
   const revEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   revEls.forEach(el => io.observe(el));
 
-  /* FAQ */
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
@@ -1191,10 +763,16 @@ footer {
     if (!isOpen) item.classList.add('open');
   }
 
-  /* Nav scroll */
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  });
-</script>
-</body>
-</html>
+  const form = document.getElementById('quoteForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const orig = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+      const data = await res.json();
+      i
