@@ -628,9 +628,8 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="reveal rd2">
         <div class="quote-form-wrap">
           <div class="form-heading">Request a Free Estimate</div>
-          <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+          <form id="quoteForm">
             <input type="hidden" name="access_key" value="59edd30f-f5ac-41e1-b7fa-db07e579acda" />
-            <input type="hidden" name="redirect" value="false" />
             <input type="hidden" name="subject" value="New Quote Request | Alta Exteriors LLC" />
             <input type="hidden" name="from_name" value="Alta Exteriors Website" />
             <input type="checkbox" name="botcheck" style="display:none;" />
@@ -650,7 +649,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
             <div class="form-submit"><button type="submit" id="submitBtn">Request My Free Quote →</button></div>
             <p class="form-note">No spam. No pressure. Just a free, honest estimate.</p>
           </form>
-          <div id="successMsg"><div class="s-icon">✅</div><div class="s-title">Request Sent!</div><p class="s-sub">We'll be in touch within one business day.<br>Talk soon. (425) 686-2337</p></div>
+          <div id="successMsg"><div class="s-icon">🎉</div><div class="s-title">Wonderful!</div><p class="s-sub">We have your request. One of our team members will be in contact with you shortly.</p></div>
         </div>
       </div>
     </div>
